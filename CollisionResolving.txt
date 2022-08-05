@@ -1,0 +1,18 @@
+So how can we resolve this issue? There are many ways to do this and I will list a few below.
+
+Chaining — chaining is the idea of formatting linked lists on all collisions. The issue with this is you get all the overhead that comes with a linked list. If you want to retrieve that specific information you’d have to traverse the linked list. Example below:
+https://en.wikipedia.org/wiki/Hash_table#/media/File:Hash_table_5_0_1_1_1_1_1_LL.svg
+
+Rehashing — this is where if your first hash leads you to a spot that has something already you simply re-hash it and hope to land in an open space. This rehash can be the same function or something different. As long as the order of hashing is followed, you will get to your desired entry.
+
+Linear Probing — this is a very simple method where you just add 1 and go to the next position if the first hashed location is taken (collision). The issue with this is with high load factors it can lead to clustering which induces collisions into other collisions.
+
+h(j)=h(k), so the next hash function,
+h1 is used. A second collision occurs,
+so h2 is used. — https://www.cs.auckland.ac.nz/software/AlgAnim/hash_tables.html
+
+Quadratic Probing — this is similar to linear probing except instead of adding 1 or going to the neighboring location you add a successive values of an arbitrary quadratic polynomial until an open slot is found. This leads to less primary clustering.
+If the slot hash(x) % S is full, then we try (hash(x) + 1*1) % S.
+If (hash(x) + 1*1) % S is also full, then we try (hash(x) + 2*2) % S.
+If (hash(x) + 2*2) % S is also full, then we try (hash(x) + 3*3) % S.
+This process is repeated for all the values of i until an empty slot is found.
